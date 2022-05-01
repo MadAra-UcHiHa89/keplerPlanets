@@ -31,15 +31,15 @@ const keplerReadStream = fs
     console.log(err);
   })
   .on("end", () => {
-    console.log(results);
     console.log(`Total ${results.length} habitable planets found `);
+    console.log(results.map((planet) => planet["kepler_name"]));
   });
 
 // Created a stream which reads data from the kepler_Data.csv file in chunks and emits the data in the stream.
 
 // keplerReadStream.pipe(
 //   parse({
-//     Comment: "#", // Specify the comment character
+//     comment: "#", // Specify the comment character
 //     columns: true, // this tells to return each row in the csv file as a Js object with the column names as the properties
 //   })
 // );
